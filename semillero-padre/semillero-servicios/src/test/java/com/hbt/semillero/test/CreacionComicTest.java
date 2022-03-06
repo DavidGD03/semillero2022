@@ -26,7 +26,12 @@ import com.hbt.semillero.enums.TematicaEnum;
  * @version 1.0
  */
 public class CreacionComicTest {
+	
 	private final static Logger LOG = Logger.getLogger(CreacionComicTest.class);
+	
+	/**
+	 * Array con los 10 comics creados inicialmente
+	 */
 	ArrayList<ComicDTO> comicsCreados = new ArrayList<>();
 	
 	/**

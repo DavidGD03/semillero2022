@@ -3,72 +3,72 @@ package com.hbt.semillero.dto;
 import java.io.Serializable;
 
 /**
- * Indica el resultado de ejecución.
  * 
- * @author Johnny Soto
- *
+ * <b>Descripción:<b> Clase que contendra la respuesta de un servicio o endpoint cuando sea success o error
+ * <b>Caso de Uso:<b> SEMILLERO 2022
+ * @author David Felipe Rojas Casadiego
+ * @version 1.0
  */
 public class ResultadoDTO implements Serializable {
-
+	
 	/**
-	 * Serial
+	 * Atributo que determina el serial de la clase
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * Indicador de resultado.
+	 * Atributo que determina si el request fue exitoso o no
 	 */
-	private boolean exitoso = false;
+	private boolean exitoso;
 	/**
-	 * Mensaje de ejecución.
+	 * Atributo que determina el mensaje response si fue exitoso o no
 	 */
 	private String mensajeEjecucion;
 
+	public ResultadoDTO() {
+		
+	}
+	
 	/**
-	 * Constructor de la clase.
 	 * 
-	 * @param exitoso
-	 * @param mensajeEjecucion
+	 * Constructor de la clase.
+	 * @param exitoso Atributo que determina si el request fue exitoso o no
+	 * @param mensajeEjecucion Atributo que determina el response si fue exitoso o no
 	 */
 	public ResultadoDTO(boolean exitoso, String mensajeEjecucion) {
-		super();
+		// Se asigna el valor que venga por default en los parametros del contructor
 		this.exitoso = exitoso;
 		this.mensajeEjecucion = mensajeEjecucion;
 	}
 
 	/**
-	 * Método que obtiene el valor de la propiedad exitoso
-	 * 
-	 * @return the exitoso
+	 * Metodo encargado de retornar el valor del atributo exitoso
+	 * @return El exitoso asociado a la clase
 	 */
 	public boolean isExitoso() {
 		return exitoso;
 	}
 
 	/**
-	 * Método que asigna el valor de la propiedad exitoso
-	 * 
-	 * @param exitoso the exitoso to set
+	 * Metodo encargado de modificar el valor del atributo exitoso
+	 * @param exitoso El nuevo exitoso a modificar.
 	 */
 	public void setExitoso(boolean exitoso) {
 		this.exitoso = exitoso;
 	}
 
 	/**
-	 * Método que obtiene el valor de la propiedad mensajeEjecucion
-	 * 
-	 * @return the mensajeEjecucion
+	 * Metodo encargado de retornar el valor del atributo mensajeEjecucion
+	 * @return El mensajeEjecucion asociado a la clase
 	 */
 	public String getMensajeEjecucion() {
 		return mensajeEjecucion;
 	}
 
 	/**
-	 * Método que asigna el valor de la propiedad mensajeEjecucion
-	 * 
-	 * @param mensajeEjecucion the mensajeEjecucion to set
+	 * Metodo encargado de modificar el valor del atributo mensajeEjecucion
+	 * @param mensajeEjecucion El nuevo mensajeEjecucion a modificar.
 	 */
 	public void setMensajeEjecucion(String mensajeEjecucion) {
 		this.mensajeEjecucion = mensajeEjecucion;
 	}
-
 }

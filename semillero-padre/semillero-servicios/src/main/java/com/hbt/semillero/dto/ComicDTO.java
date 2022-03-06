@@ -33,19 +33,40 @@ public class ComicDTO {
 	private Integer cantidad;
 	
 	/**
+	 * 
+	 * Constructor de la clase por defecto.
+	 */
+	public ComicDTO() {
+		super();
+	}
+	
+	/**
+	 * 
+	 * Constructor de la clase ComicDTO para pruebas JPQL
+	 * @param nombre Atributo que determina el nombre del comic
+	 * @param estadoEnum Atributo que determina el estado de venta del comic
+	 * @param precio Atributo que determina el precio del comic
+	 */
+	public ComicDTO(String nombre, EstadoEnum estadoEnum, BigDecimal precio) {
+		this.nombre = nombre;
+		this.estadoEnum = estadoEnum;
+		this.precio = precio;
+	}
+	
+	/**
 	 * Constructor de la clase ComicDTO.
-	 * @param id
-	 * @param nombre
-	 * @param editorial
-	 * @param tematicaEnum
-	 * @param coleccion
-	 * @param numeroPaginas
-	 * @param precio
-	 * @param autores
-	 * @param color
-	 * @param fechaVenta
-	 * @param estadoEnum
-	 * @param cantidad
+	 * @param id Atributo que determina la id del comic
+	 * @param nombre Atributo que determina el nombre del comic
+	 * @param editorial Atributo que determina la editorial del comic
+	 * @param tematicaEnum Atributo que determina la temática del comic
+	 * @param coleccion Atributo que determina la colección a la que pertenece el comic
+	 * @param numeroPaginas Atributo que determina el número de páginas del comic
+	 * @param precio Atributo que determina el precio del comic
+	 * @param autores Atributo que determina los autores del comic
+	 * @param color Atributo que determina si está o no a color el comic
+	 * @param fechaVenta Atributo que determina la fecha de venta del comic
+	 * @param estadoEnum Atributo que determina el estado de venta del comic
+	 * @param cantidad Atributo que determina la cantidad de unidades que tiene el comic
 	 */
 	public ComicDTO(Long id, String nombre, String editorial, TematicaEnum tematicaEnum, String coleccion,
 			Integer numeroPaginas, BigDecimal precio, String autores, Boolean color, LocalDate fechaVenta,

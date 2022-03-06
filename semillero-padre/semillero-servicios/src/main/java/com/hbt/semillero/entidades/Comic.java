@@ -39,38 +39,68 @@ public class Comic implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Id unica del comic auto-incrementable
+	 */
 	@Id
 	@Column(name="SCID")
 	@SequenceGenerator(allocationSize = 1, name="COMIC_SCID_GENERATOR", sequenceName="SEQ_COMIC")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMIC_SCID_GENERATOR")
 	private Long id;
 	
+	/**
+	 * Nombre del comic
+	 */
 	@Column(name="SCNOMBRE", nullable=false, length=50)
 	private String nombre;
 	
+	/**
+	 * Nombre de la editorial del comic
+	 */
 	@Column(name="SCEDITORIAL", nullable=false, length=50)
 	private String editorial;
 	
+	/**
+	 * Nombre de la temática del comic
+	 */
 	@Column(name="SCTEMATICA")
 	@Enumerated(value= EnumType.STRING)
 	private TematicaEnum tematicaEnum;
 	
+	/**
+	 * Nombre de la colección a la que pertenece el comic
+	 */
 	@Column(name="SCCOLECCION", nullable=false, length=50)
 	private String coleccion;
 	
+	/**
+	 * Número de páginas del comic
+	 */
 	@Column(name="SCNUMEROPAGINAS", nullable=false)
 	private Integer numeroPaginas;
 	
+	/**
+	 * Precio del comic
+	 */
 	@Column(name="SCPRECIO", nullable=false)
 	private BigDecimal precio;
 	
+	/**
+	 * Autores del comic
+	 */
 	@Column(name="SCAUTORES", nullable=false, length=50)
 	private String autores;
 	
+	/**
+	 * Indica si el comic está a color o en blanco y negro
+	 */
 	@Column(name="SCCOLOR")
 	// Deben siempre usarse los wrapper que empiezan en mayuscula (Integer, Long, etc)
 	private Boolean color;
 	
+	/**
+	 * Fecha de inicio de la venta del comic
+	 */
 	//LocalDate esto representa fecha de tipo yyyy-mm-dd
 	//LocalTime esto representa el tiempo hh:mm:ss:ssss
 	//LocalDateTime esto representa la fecha y la hora
@@ -78,10 +108,16 @@ public class Comic implements Serializable {
 	@Column(name="SCFECHA_VENTA")
 	private LocalDate fechaVenta;
 	
+	/**
+	 * Define si el comic tiene existencia para la venta o no
+	 */
 	@Column(name="SCESTADO")
 	@Enumerated(value= EnumType.STRING)
 	private EstadoEnum estadoEnum;
 	
+	/**
+	 * Cantidad de comics en inventario disponibles para la venta
+	 */
 	@Column(name="SCCANTIDAD", nullable=false)
 	private Integer cantidad;
 
