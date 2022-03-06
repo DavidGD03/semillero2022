@@ -120,16 +120,28 @@ public class GestionarComicBean implements IGestionarComicLocal {
 	public ConsultaComicTamanioNombreDTO consultarComicTamanioNombre(Short lengthComic) throws Exception {
 		LOG.info("Inicia ejecucion de consultarComicTamanioNombre()");
 		
+		/**
+		 * Máxima longitud permitida de caracteres en el parametro lengthComic
+		 */
 		Short maxComicLength = 12;
+		
+		/**
+		 * DTO con la lista de los nombres de comics que superen o no cierto numero
+		 * de caracteres más el resultado de ejecución
+		 */
 		ConsultaComicTamanioNombreDTO consultaNombre = new ConsultaComicTamanioNombreDTO();
 		
+		// Condicional para verificar que cumpla con la máxima longitud permitida de caracteres
 		if(lengthComic > maxComicLength) {
 			throw new Exception("La longitud máxima permitida es de 12 caracteres");
 		}
 		
+		// Consulta usando los campos del constructor del DTO
 		String consultaCamposContructor = "SELECT new com.hbt.semillero.dto.ConsultaComicNombreDTO( c.nombre ) "
 				  + " FROM Comic c ";
+		
 		try {
+			// Lista con todos los nombres de los comics que están en la BD
 			ArrayList<ConsultaComicNombreDTO> listaNombresComicsFull = new ArrayList<>();
 			Query queryNombre	= em.createQuery(consultaCamposContructor);
 			listaNombresComicsFull = (ArrayList<ConsultaComicNombreDTO>) queryNombre.getResultList();
@@ -139,7 +151,6 @@ public class GestionarComicBean implements IGestionarComicLocal {
 			
 			consultaNombre.setComicsSuperanTamanio(listaComicsSuperanTamanio);
 			consultaNombre.setComicsNoSuperanTamanio(listaComicsNoSuperanTamanio);
-			
 			consultaNombre.setExitoso(true);
 			consultaNombre.setMensajeEjecucion("Comics procesados exitosamente");
 			
