@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 /**
  * @description Componente menu, el cual contiene la logica para direccionar a los modulos
  * desarrollados
- * 
+ *
  * @author Diego Fernando Alvarez Silva <dalvarez@heinsohn.com.co>
  */
 @Component({
-  selector: 'home-page',
+  selector: 'menu-page',
   templateUrl: './menu-component.html',
 })
 export class MenuComponent implements OnInit {

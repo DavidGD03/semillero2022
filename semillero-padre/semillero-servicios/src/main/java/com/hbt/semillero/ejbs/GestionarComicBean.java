@@ -25,6 +25,7 @@ import com.hbt.semillero.dto.ConsultaComicTamanioNombreDTO;
 import com.hbt.semillero.dto.ConsultaNombrePrecioComicDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.entidades.Comic;
+import com.hbt.semillero.enums.EstadoEnum;
 import com.hbt.semillero.interfaces.IGestionarComicLocal;
 
 /**
@@ -104,7 +105,7 @@ public class GestionarComicBean implements IGestionarComicLocal {
 		if(comicDTO.getNombre() == null) {
 			throw new Exception("El campo nombre es requerido");
 		}
-		
+		comicDTO.setEstadoEnum(EstadoEnum.ACTIVO);
 		Comic comic = this.convertirComicDTOToComic(comicDTO);
 		em.persist(comic);
 		
@@ -163,6 +164,33 @@ public class GestionarComicBean implements IGestionarComicLocal {
 		LOG.info("Finaliza ejecucion de consultarComicTamanioNombre()");
 		return consultaNombre;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public ArrayList<ComicDTO> consultarComics() {
+		LOG.info("Inicia ejecucion de obtenerComics()");
+
+		ArrayList<ComicDTO> listaComics = new ArrayList<>();
+		String consultarComics = "SELECT c FROM Comic c";
+		
+		ResultadoDTO resultadoDTO = new ResultadoDTO();
+		
+		try {
+			
+			Query queryComics	= em.createQuery(consultarComics);
+			listaComics = (ArrayList<ComicDTO>) queryComics.getResultList();
+			resultadoDTO.setExitoso(true);
+			resultadoDTO.setMensajeEjecucion("La consulta se ejecuto exitosamente");
+			
+		} catch (Exception e) {
+			LOG.error(MESSAGE_ERROR + e.getMessage());
+			resultadoDTO.setExitoso(false);
+			resultadoDTO.setMensajeEjecucion("Se ha presentado un error tecnico");
+		}
+		return listaComics;
+	}
+	
 	
 	/**
 	 * 

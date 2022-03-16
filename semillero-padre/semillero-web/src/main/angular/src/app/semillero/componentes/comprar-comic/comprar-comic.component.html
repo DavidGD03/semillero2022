@@ -1,0 +1,33 @@
+<div class="container">
+  <form>
+      <h1>Comprar Comic</h1>
+      <hr>
+      <br>
+      <div class="row">
+          <!--Inicia Input para el nombre del comic -->
+          <div class="col-6">
+              <label for="txtNombre">Nombre:</label>
+              <input type="text" class="form-control" id="txtNombre" value="{{ nombreComic }}" readonly>
+          </div>
+
+
+          <!--Finaliza Input para la cantidad a comprar -->
+
+          <div class="col-6">
+              <label for="txtCantidad">Cantidad:</label>
+              <input type="text" class="form-control" id="txtCantidad"
+                  [ngClass]="{ 'is-invalid' :  !formularioValido && f.cantidad.errors }"
+                  formControlName="cantidad">
+              <div *ngIf="!formularioValido && f.cantidad.errors">
+                  <span class="text-danger" *ngIf="f.cantidad.errors.required">Campo requerido.</span>
+              </div>
+          </div>
+      </div>
+  </form>
+  <div class="row">
+    <div class="col-12">
+      <i class="far fa-times-circle 2x ml-1" (click)="cancelarCompra()" title="Cancelar compra"></i>
+      <i class="fa-solid fa-cart-shopping" (click)="comprarComic(comic)" title="Comprar"></i>
+  </div>
+</div>
+

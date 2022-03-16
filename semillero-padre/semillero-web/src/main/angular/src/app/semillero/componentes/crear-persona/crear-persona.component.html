@@ -1,0 +1,17 @@
+<p>crear-persona works!</p>
+
+<h1>{{ nombreInstructor }}</h1>
+
+<h5>{{ respuesta1 }}</h5>
+
+<h5>{{ respuesta2 }}</h5>
+
+<h5>{{ respuesta3 }}</h5>
+
+<h4>{{ respuesta4 }}</h4>
+
+
+<img [src]="imagePath" [height]="height" [width]="width" (click)="imprimirPath()">
+
+<label>INGRESE PATH IMAGEN:</label>
+<input type="text" class="form-control-plaintext" id="pathImage" [(ngModel)]="imagePath" name="urlImagen">

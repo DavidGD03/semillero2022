@@ -256,14 +256,15 @@ public class ComicDTO {
 	}
 
 
+	public static ComicDTO valueOf(String arg) {
+		return JsonUtils.valueOf(arg, ComicDTO.class);
+	}
+	
 	/** 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "ComicDTO [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", tematicaEnum="
-				+ tematicaEnum + ", coleccion=" + coleccion + ", numeroPaginas=" + numeroPaginas + ", precio=" + precio
-				+ ", autores=" + autores + ", color=" + color + ", fechaVenta=" + fechaVenta + ", estadoEnum="
-				+ estadoEnum + ", cantidad=" + cantidad + "]";
+		return JsonUtils.toStringJson(this);
 	}
 }

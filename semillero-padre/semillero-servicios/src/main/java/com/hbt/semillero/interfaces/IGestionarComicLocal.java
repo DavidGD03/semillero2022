@@ -3,6 +3,8 @@
  */
 package com.hbt.semillero.interfaces;
 
+import java.util.ArrayList;
+
 import javax.ejb.Local;
 
 import com.hbt.semillero.dto.ComicDTO;
@@ -50,5 +52,7 @@ public interface IGestionarComicLocal {
 	 * @throws Exception
 	 */
 	public ConsultaComicTamanioNombreDTO consultarComicTamanioNombre(Short lengthComic) throws Exception;
+	
+	public ArrayList<ComicDTO> consultarComics() throws Exception;
 }
 

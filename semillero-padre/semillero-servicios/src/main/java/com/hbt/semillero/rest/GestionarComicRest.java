@@ -2,6 +2,8 @@
  * GestionarComicRest.java
  */
 package com.hbt.semillero.rest;
+import java.util.ArrayList;
+
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -95,6 +97,14 @@ public class GestionarComicRest {
 			consultaComicTamanioNombreDTO.setMensajeEjecucion(e.getMessage());
 		}
 		return consultaComicTamanioNombreDTO;		
+	}
+	
+	@GET
+	@Path("/consultarComics")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ArrayList<ComicDTO> consultarComics() throws Exception {
+		return this.gestionarComicLocal.consultarComics();		
 	}
 			
 	
